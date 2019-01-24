@@ -181,6 +181,14 @@ obj-$(CONFIG_ESOC)              += esoc/
 obj-$(CONFIG_FPGA)		+= fpga/
 obj-$(CONFIG_SENSORS_SSC)		+= sensors/
 obj-$(CONFIG_TEE)		+= tee/
+
 # optimise for size
 subdir-ccflags-y += $(call cc-option, -g0)
 subdir-ccflags-y += $(call cc-option, -Os)
+
+obj-$(CONFIG_BCM_GPS_SPI_DRIVER) += gps/
+obj-$(CONFIG_HALLS)		+= halls/
+
+# DTS_EAGLE START
+obj-$(CONFIG_AINUR_DTS_SW) += dts_eagle/
+# DTS_EAGLE END
