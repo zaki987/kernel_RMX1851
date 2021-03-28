@@ -185,8 +185,3 @@ obj-$(CONFIG_TEE)		+= tee/
 # optimise for size
 subdir-ccflags-y += $(call cc-option, -g0)
 subdir-ccflags-y += $(call cc-option, -Os)
-
-obj-$(CONFIG_BCM_GPS_SPI_DRIVER) += gps/
-obj-$(CONFIG_HALLS)		+= halls/
-
-obj-$(CONFIG_AINUR_DTS_SW) += dts_eagle/
