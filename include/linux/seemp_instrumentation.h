@@ -13,7 +13,7 @@
 #ifndef __SEEMP_LOGK_STUB__
 #define __SEEMP_LOGK_STUB__
 
-#if defined(CONFIG_SEEMP_CORE) && defined(CONFIG_DEBUG_KERNEL)
+#ifdef CONFIG_SEEMP_CORE
 #include <linux/kernel.h>
 #include <linux/seemp_api.h>
 #include <linux/socket.h>
