@@ -1,24 +1,15 @@
---- 
-clone: 
-  depth: 1
 kind: pipeline
-name: Blaster4385Pipeline
-steps: 
-  - name: submodules
-    image: alpine/git
-    commands:
-     - git submodule init
-     - git submodule update
-  - 
-    environment: 
-      TG_TOKEN: 
-        from_secret: TOKEN
-      CHANNEL_ID:
-        from_secret: CHATID
-    commands:
-      - "curl https://raw.githubusercontent.com/Blaster4385/scripts/main/build | bash"
-    image: fadlyas/kernel_dockerfile:latest
-    name: Build
-    trigger: 
-      branch: 
-        - master
+name: Xenon
+
+clone:
+  depth: 1
+
+steps:
+- name: Building
+  image: fadlyas/kernel_dockerfile
+  environment:
+    token:
+      from_secret: token
+  commands:
+  - chmod 777 build.sh
+  - bash build.sh
