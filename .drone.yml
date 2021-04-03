@@ -1,16 +1,24 @@
-kind: pipeline
-name: Rave
-
-clone:
+--- 
+clone: 
   depth: 1
-
-steps:
-- name: Building
-  image: fadlyas/kernel_dockerfile
-  environment:
-    bot_token:
-      from_secret: BOT_API_KEY
-    chat_id:
-      from_secret: CHAT_ID
-  commands:
-  - bash build.sh
+kind: pipeline
+name: Blaster4385Pipeline
+steps: 
+  - name: submodules
+    image: alpine/git
+    commands:
+     - git submodule init
+     - git submodule update
+  - 
+    environment: 
+      TG_TOKEN: 
+        from_secret: TOKEN
+      CHANNEL_ID:
+        from_secret: CHATID
+    commands:
+      - "curl https://raw.githubusercontent.com/Blaster4385/scripts/main/build | bash"
+    image: fadlyas/kernel_dockerfile:latest
+    name: Build
+    trigger: 
+      branch: 
+        - master
