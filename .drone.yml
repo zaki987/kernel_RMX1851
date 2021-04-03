@@ -1,5 +1,5 @@
 kind: pipeline
-name: Xenon
+name: Rave
 
 clone:
   depth: 1
@@ -8,8 +8,9 @@ steps:
 - name: Building
   image: fadlyas/kernel_dockerfile
   environment:
-    token:
-      from_secret: token
+    bot_token:
+      from_secret: BOT_API_KEY
+    chat_id:
+      from_secret: CHAT_ID
   commands:
-  - chmod 777 build.sh
   - bash build.sh
